@@ -10,6 +10,10 @@
             margin: 20px;
         }
 
+        h1{
+            
+        }
+
         .catalogo {
             display: flex;
             flex-wrap: wrap;
@@ -46,7 +50,7 @@
     </style>
 </head>
 <body>
-    
+    <h1>Varejo Produtos</h1>
     <h1>Catálogo Produtos</h1>
 
     <form>
@@ -61,12 +65,13 @@
 
     <script>
         const catalogoProdutos = [
-            ['Notebook Dell i7 14" 500GB SSD 16RAM', 7859.59, 'notebook'],
-            ['Notebook Lenovo i5 15" 250GB SSD 16RAM', 5699.00, 'notebook'],
-            ['Impressora Epson EcoTank', 999.00, 'impressora'],
-            ['Iphone 17 Pro Max 256GB', 4500.99, 'celular'],
-            ['Samsung Galaxy S26 Ultra 256GB', 3500.99, 'celular'],
-            ['Mouse HP 150 Wireless Sem Fio', 67.67, 'acessorios']
+            ['Notebook Dell i7 14" 500GB SSD 16RAM', 7859.59, 'Notebook'],
+            ['Notebook Lenovo i5 15" 250GB SSD 16RAM', 5699.00, 'Notebook'],
+            ['Impressora Epson EcoTank', 999.00, 'Impressora'],
+            ['Iphone 17 Pro Max 256GB', 4500.99, 'Celular'],
+            ['Samsung Galaxy S26 Ultra 256GB', 3500.99, 'Celular'],
+            ['Mouse HP 150 Wireless Sem Fio', 67.67, 'Acessorios']
+            
         ];
 
         const divCatalogo = document.getElementById('div-catalogo');
@@ -84,7 +89,7 @@
 
             if (filtro !== '') {
                 produtosFiltrados = catalogoProdutos
-                    .filter(produto => produto[2].toLowerCase() === filtro);
+                    .filter(produto => produto[2].toLowerCase().includes(filtro));
             } else {
                 produtosFiltrados = catalogoProdutos;
             }
@@ -109,13 +114,15 @@
                 spanPreco.innerHTML = `R$ ${produto[1].toFixed(2).replace('.', ',')}`;
                 spanPreco.classList.add('span-preco');
 
-                divCard.append(h3);
-                divCard.append(spanCategoria);
-                divCard.append(spanPreco);
+                divCard.appendChild(h3);
+                divCard.appendChild(spanCategoria);
+                divCard.appendChild(spanPreco);
 
-                divCatalogo.append(divCard);
+                divCatalogo.appendChild(divCard);
             });
+
         }
+        mostrarCatalogoProdutos();
     </script>
 </body>
 </html>
