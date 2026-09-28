@@ -4,50 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>catalogo-produtos</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
-
-        h1{
-            
-        }
-
-        .catalogo {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .div-card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            width: 200px;
-        }
-
-        .div-card h3 {
-            margin-top: 0;
-            font-size: 16px;
-        }
-
-        .span-categoria {
-            display: block;
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .span-preco {
-            font-weight: bold;
-            color: green;
-        }
-
-        .filtro-erro {
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Varejo Produtos</h1>
@@ -63,66 +20,6 @@
 
     <div class="catalogo" id="div-catalogo"></div>
 
-    <script>
-        const catalogoProdutos = [
-            ['Notebook Dell i7 14" 500GB SSD 16RAM', 7859.59, 'Notebook'],
-            ['Notebook Lenovo i5 15" 250GB SSD 16RAM', 5699.00, 'Notebook'],
-            ['Impressora Epson EcoTank', 999.00, 'Impressora'],
-            ['Iphone 17 Pro Max 256GB', 4500.99, 'Celular'],
-            ['Samsung Galaxy S26 Ultra 256GB', 3500.99, 'Celular'],
-            ['Mouse HP 150 Wireless Sem Fio', 67.67, 'Acessorios']
-            
-        ];
-
-        const divCatalogo = document.getElementById('div-catalogo');
-
-        function mostrarCatalogoProdutos(event) {
-            if(event) event.preventDefault();
-
-            const filtro = document.getElementById('filtro')
-                .value
-                .trim()
-                .toLowerCase();
-
-            let produtosFiltrados = [];
-            divCatalogo.innerHTML = '';
-
-            if (filtro !== '') {
-                produtosFiltrados = catalogoProdutos
-                    .filter(produto => produto[2].toLowerCase().includes(filtro));
-            } else {
-                produtosFiltrados = catalogoProdutos;
-            }
-
-            if(produtosFiltrados.length === 0) {
-                divCatalogo.innerHTML = `<p class="filtro-erro">Nao há produtos nesta categoria</p>`;
-                return;
-            }
-
-            produtosFiltrados.forEach((produto) => {
-                const divCard = document.createElement('div');
-                divCard.classList.add('div-card');
-
-                const h3 = document.createElement('h3');
-                h3.innerHTML = produto[0];
-
-                const spanCategoria = document.createElement('span');
-                spanCategoria.innerHTML = produto[2];
-                spanCategoria.classList.add('span-categoria');
-
-                const spanPreco = document.createElement('span');
-                spanPreco.innerHTML = `R$ ${produto[1].toFixed(2).replace('.', ',')}`;
-                spanPreco.classList.add('span-preco');
-
-                divCard.appendChild(h3);
-                divCard.appendChild(spanCategoria);
-                divCard.appendChild(spanPreco);
-
-                divCatalogo.appendChild(divCard);
-            });
-
-        }
-        mostrarCatalogoProdutos();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
