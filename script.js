@@ -7,7 +7,7 @@
             ['Impressora Epson Ecotank L1250 Wi-Fi', 889.99, 'Impressora', 'imagens/L1250-(2).jpg'],
             ['Impressora Laser Color Pro HP 4203DW', 4298.99, 'Impressora', 'imagens/Ulysses_DW_00002_M1576843.png'],
             ['HP DeskJet Ink Advantage 2975 Sem fio All-in-One Cor', 496.7, 'Impressora', 'imagens/-1678881806.jpg'],
-            ['Iphone 17 Pro Max 256GB', 4500.99, 'Celular'],
+            ['Iphone 17 Pro Max 256GB', 4500.99, 'Celular', 'imagens/iphone-17-pro-17-pro-max-hero.png'],
             ['Iphone 16e 128GB 5G', 4059.00,'Celular'],
             ['Samsung Galaxy S26 Ultra 256GB', 6800.99, 'Celular'],
             ['Mouse HP 150 Wireless Sem Fio', 72.99, 'Acessorios'],
@@ -56,6 +56,10 @@
                 const divCard = document.createElement('div');
                 divCard.classList.add('div-card');
 
+                const img = document.createElement('img');
+                img.src = produto[3];
+                img.classList.add('img-produto');
+
                 const h3 = document.createElement('h3');
                 h3.innerHTML = produto[0];
 
@@ -67,6 +71,7 @@
                 spanPreco.innerHTML = `R$ ${produto[1].toFixed(2).replace('.', ',')}`;
                 spanPreco.classList.add('span-preco');
 
+                divCard.appendChild(img);
                 divCard.appendChild(h3);
                 divCard.appendChild(spanCategoria);
                 divCard.appendChild(spanPreco);
