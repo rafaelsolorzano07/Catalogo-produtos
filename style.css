@@ -42,3 +42,9 @@ body {
         height: 150px;
         object-fit: contain;
         }
+
+        h1{
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+        }
